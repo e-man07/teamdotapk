@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div className="prose prose-invert max-w-none">
             <div className="text-xl text-gray-400 leading-relaxed space-y-8">
               <p>
-                In 2021, three passionate developers from different corners of the world found themselves in the same
+                In 2024, three passionate developers from different corners of the world found themselves in the same
                 Discord server, discussing the latest developments in blockchain technology. What started as casual
                 conversations about smart contracts and DeFi protocols quickly evolved into late-night coding sessions
                 and collaborative projects.

@@ -8,19 +8,19 @@ import Footer from "@/components/footer"
 
 const projectData: Record<string, any> = {
   "defi-protocol": {
-    title: "DeFi Yield Protocol",
-    description: "Automated yield farming protocol with ML-driven optimization strategies",
-    year: "2024",
-    category: "DeFi",
-    image: "/placeholder.svg?height=600&width=1200",
+    title: "PayPerUse",
+    description: "A composable AI agents markeplace running on decentralized infra.",
+    year: "2025",
+    category: "AI",
+    image: "/payperuse.png?height=600&width=1200",
     overview:
       "Our DeFi Yield Protocol represents a breakthrough in automated yield farming, combining advanced smart contract architecture with machine learning-driven optimization strategies. Built on Ethereum, this protocol automatically allocates user funds across multiple DeFi platforms to maximize returns while minimizing risk.",
     challenge:
       "Traditional yield farming requires constant monitoring and manual rebalancing. Users often miss optimal opportunities or expose themselves to unnecessary risks due to market volatility and complexity.",
     solution:
       "We developed an intelligent protocol that uses machine learning algorithms to analyze market conditions, assess risks, and automatically rebalance portfolios across 15+ DeFi protocols in real-time.",
-    tags: ["Ethereum", "Solidity", "React", "Machine Learning", "DeFi"],
-    links: { live: "#", github: "#" },
+    tags: ["Base", "Next.js", "React", "Machine Learning", "AI"],
+    links: { live: "https://payperuse.online", github: "#" },
     features: [
       "Automated yield optimization across 15+ protocols",
       "Real-time risk assessment and rebalancing",
