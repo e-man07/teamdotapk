@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div className="prose prose-invert max-w-none">
             <div className="text-xl text-gray-400 leading-relaxed space-y-8">
               <p>
-                In 2024, three passionate developers from different corners of the world found themselves in the same
+                In 2024, three passionate developers from the same city found themselves in the same
                 Discord server, discussing the latest developments in blockchain technology. What started as casual
                 conversations about smart contracts and DeFi protocols quickly evolved into late-night coding sessions
                 and collaborative projects.
@@ -50,25 +50,25 @@ export default function AboutPage() {
           <div className="space-y-16">
             {[
               {
-                year: "2021",
+                year: "2024",
                 title: "The Beginning",
                 description:
                   "Three developers met on a Discord server, bonding over shared passion for blockchain technology.",
               },
               {
-                year: "2022",
+                year: "2025",
                 title: "First Hackathon Win",
                 description:
                   "Won our first major hackathon with a DeFi protocol that caught the attention of the community.",
               },
               {
-                year: "2023",
+                year: "2025",
                 title: "Multi-Chain Expansion",
                 description:
                   "Expanded our expertise across Solana, Ethereum, Base, and other emerging blockchain networks.",
               },
               {
-                year: "2024",
+                year: "2025",
                 title: "teamdotapk Formation",
                 description:
                   "Officially formed teamdotapk and started taking on larger, more complex blockchain projects.",
