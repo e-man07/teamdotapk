@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     const data = await request.json()
     
-    // Create new contact entry in database
+    // Create new contact entry in database fir user query
     const contact = await prisma.contact.create({
       data: {
         name: data.name,
