@@ -2,217 +2,146 @@
 
 import Link from "next/link"
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
 
 const projects = [
   {
-    id: "defi-protocol",
     title: "PayPerUse",
-    description: "A composable AI agents markeplace running on decentralized infra.",
+    description: "A composable AI agents marketplace running on decentralized infra.",
     tags: ["Base", "TypeScript", "Next.js", "AI"],
-    year: "2025",
-    image: "/payperuse.png?height=400&width=600",
     links: { live: "https://payperuse.online", github: "https://github.com/kshitij-hash/PayPerUse" },
   },
   {
-    id: "nft-marketplace",
     title: "Lavinth",
     description: "A DeFi security layer on Solana.",
     tags: ["Solana", "TypeScript", "Machine Learning"],
-    year: "2025",
-    image: "/lavinth.png?height=400&width=600",
     links: { live: "https://lavinth.com", github: "https://github.com/piyushjha0409/Lavinth" },
   },
   {
-    id: "ai-trading-bot",
     title: "TradeX",
     description: "The Ultimate AI Agent for on-chain Solana interactions.",
     tags: ["Solana", "TypeScript", "Next.js", "AI", "Trading"],
-    year: "2025",
-    image: "/tradeX.png?height=400&width=600",
     links: { live: "https://tradxai.fun", github: "#" },
   },
 ]
 
+const techStack = [
+  "Next.js", "React", "TypeScript", "Solana", "Base", "Node.js", "Prisma", "TailwindCSS"
+]
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
+    <>
 
-      {/* Hero */}
-      <section className="px-6 pt-32 pb-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-8">
-              We build the future of <span className="italic font-normal">blockchain</span>
-            </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
-              Three developers who met on Discord, now building cutting-edge blockchain solutions for the decentralized
-              world.
-            </p>
-            <div className="flex items-center gap-6">
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8" asChild>
-                <Link href="/contact">
-                  Let's work together
-                  <ArrowUpRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-              <Link
-                href="/about"
-                className="text-gray-400 hover:text-white transition-colors underline underline-offset-4"
+      {/* Intro */}
+      <section className="px-6 pt-28 pb-8">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4">
+            teamdotapk
+          </h1>
+          <p className="text-xl text-gray-400 mb-4 leading-relaxed">
+            Three developers building the future of blockchain.
+          </p>
+          <p className="text-gray-400 leading-relaxed max-w-2xl">
+            We met on Discord and now create cutting-edge blockchain solutions, from DeFi protocols to AI-powered trading bots. 
+            Currently working across Solana, Base, and other chains, building products that matter.
+          </p>
+        </div>
+      </section>
+
+      {/* Tech Stack */}
+      <section className="px-6 py-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-light mb-4">generally we build with:</h2>
+          <div className="flex flex-wrap gap-3">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-sm bg-gray-900 text-gray-300 rounded-full border border-gray-800"
               >
-                Our story
-              </Link>
-            </div>
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Selected Work */}
-      <section className="px-6 py-20 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-16">
-            <h2 className="text-4xl font-light">Selected Work</h2>
-            <Link href="/projects" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-              View all projects
+      {/* Projects */}
+      <section id="work" className="px-6 py-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-light mb-6">projects:</h2>
+          <div className="space-y-6">
+            {projects.map((project, index) => (
+              <div key={index} className="group">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                  <h3 className="text-xl font-light group-hover:text-gray-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-4">
+                    <a
+                      href={project.links.live}
+                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                    {project.links.github !== "#" && (
+                      <a
+                        href={project.links.github}
+                        className="text-gray-400 hover:text-white transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <p className="text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs bg-gray-800 text-gray-400 rounded font-mono"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* See more link */}
+          <div className="mt-6">
+            <Link 
+              href="/projects" 
+              className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+            >
+              see more projects
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
-
-          <div className="space-y-24">
-            {projects.map((project, index) => (
-              <div key={project.id} className="group">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className={`lg:col-span-7 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="aspect-[4/3] bg-gray-900 rounded-lg overflow-hidden">
-                      <img
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className="space-y-6">
-                      <div className="text-sm text-gray-500 font-mono">{project.year}</div>
-
-                      <div>
-                        <h3 className="text-3xl font-light mb-4 group-hover:text-gray-300 transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-400 text-lg leading-relaxed mb-6">{project.description}</p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="px-3 py-1 text-sm bg-gray-900 text-gray-300 rounded-full">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center gap-6">
-                        <Link
-                          href={`/projects/${project.id}`}
-                          className="text-white hover:text-gray-300 transition-colors flex items-center gap-2"
-                        >
-                          View project
-                          <ArrowUpRight className="w-4 h-4" />
-                        </Link>
-                        <div className="flex items-center gap-4">
-                          <a
-                            href={project.links.live}
-                            className="text-gray-400 hover:text-white transition-colors"
-                            aria-label="Live demo"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                          <a
-                            href={project.links.github}
-                            className="text-gray-400 hover:text-white transition-colors"
-                            aria-label="Source code"
-                          >
-                            <Github className="w-4 h-4" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="px-6 py-20 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-light mb-16">What we do</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Blockchain Development",
-                description: "Smart contracts, DeFi protocols, and dApps across multiple chains",
-              },
-              {
-                title: "Full-Stack Applications",
-                description: "End-to-end web applications with modern frameworks",
-              },
-              {
-                title: "AI Integration",
-                description: "Machine learning solutions integrated with blockchain technology",
-              },
-              {
-                title: "Security Auditing",
-                description: "Comprehensive security reviews for smart contracts",
-              },
-              {
-                title: "Mobile Development",
-                description: "Native and cross-platform apps with Web3 integration",
-              },
-              {
-                title: "Technical Consulting",
-                description: "Strategic guidance for blockchain projects and architecture",
-              },
-            ].map((service, index) => (
-              <div key={index} className="group">
-                <div className="border border-gray-800 rounded-lg p-6 h-full hover:border-gray-700 transition-colors">
-                  <h3 className="text-xl font-light mb-4 group-hover:text-gray-300 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">{service.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Contact */}
+      <section className="px-6 py-6">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-gray-400 leading-relaxed mb-4">
+            if you're interested in collaborating on building some cool stuff, feel free to dm us on{" "}
+            <a href="https://x.com/teamdotapk" className="text-white hover:text-gray-300 transition-colors">
+              x
+            </a>{" "}
+            or drop us an{" "}
+            <a href="mailto:teamdotapk@gmail.com" className="text-white hover:text-gray-300 transition-colors">
+              email
+            </a>
+            . we will get back to you within 2 business days. we're always open to new ideas and projects!
+          </p>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="px-6 py-20 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "Projects delivered", value: "10+" },
-              { label: "Hackathons won", value: "5+" },
-              { label: "Chains deployed on", value: "5+" },
-              { label: "Years of experience", value: "2+" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-light mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+    </>
   )
 }
