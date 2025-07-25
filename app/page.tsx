@@ -43,7 +43,7 @@ export default function HomePage() {
           </p>
           <p className="text-gray-400 leading-relaxed max-w-2xl">
             We met on Discord and now create cutting-edge blockchain solutions, from DeFi protocols to AI-powered trading bots. 
-            Currently working across Solana, Base, and other chains, building products that matter.
+            Currently working across Solana, Base, and other chains, building products that help shape a better future.
           </p>
         </div>
       </section>
