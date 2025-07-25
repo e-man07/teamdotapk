@@ -48,9 +48,8 @@ export default function Footer() {
               <ul className="space-y-2">
                 {[
                   { label: "GitHub", href: "#" },
-                  { label: "Twitter", href: "#" },
-                  { label: "Discord", href: "#" },
-                  { label: "Email", href: "/contact" },
+                  { label: "Twitter", href: "https://x.com/teamdotapk" },
+                  { label: "Email", href: "mailto:teamdotapk@gmail.com" },
                 ].map((link) => (
                   <li key={link.href}>
                     <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
@@ -65,7 +64,6 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
           <div className="text-sm text-gray-500">© {currentYear} teamdotapk. All rights reserved.</div>
-          <div className="text-sm text-gray-500 mt-4 md:mt-0">Built with ❤️ and blockchain technology</div>
         </div>
       </div>
     </footer>
