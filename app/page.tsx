@@ -9,30 +9,30 @@ import Footer from "@/components/footer"
 const projects = [
   {
     id: "defi-protocol",
-    title: "DeFi Yield Protocol",
-    description: "Automated yield farming protocol with ML-driven optimization strategies",
-    tags: ["Ethereum", "Solidity", "React"],
-    year: "2024",
-    image: "/placeholder.svg?height=400&width=600",
-    links: { live: "#", github: "#" },
+    title: "PayPerUse",
+    description: "A composable AI agents markeplace running on decentralized infra.",
+    tags: ["Base", "TypeScript", "Next.js", "AI"],
+    year: "2025",
+    image: "/payperuse.png?height=400&width=600",
+    links: { live: "https://payperuse.online", github: "https://github.com/kshitij-hash/PayPerUse" },
   },
   {
     id: "nft-marketplace",
-    title: "Cross-Chain NFT Marketplace",
-    description: "Multi-chain marketplace supporting Ethereum, Solana, and Base",
-    tags: ["Solana", "Ethereum", "Base"],
-    year: "2024",
-    image: "/placeholder.svg?height=400&width=600",
-    links: { live: "#", github: "#" },
+    title: "Lavinth",
+    description: "A DeFi security layer on Solana.",
+    tags: ["Solana", "TypeScript", "Machine Learning"],
+    year: "2025",
+    image: "/lavinth.png?height=400&width=600",
+    links: { live: "https://lavinth.com", github: "https://github.com/piyushjha0409/Lavinth" },
   },
   {
     id: "ai-trading-bot",
-    title: "AI Trading Bot",
-    description: "ML-driven trading bot with advanced analytics and portfolio management",
-    tags: ["Python", "AI/ML", "Trading"],
-    year: "2024",
-    image: "/placeholder.svg?height=400&width=600",
-    links: { live: "#", github: "#" },
+    title: "TradeX",
+    description: "The Ultimate AI Agent for on-chain Solana interactions.",
+    tags: ["Solana", "TypeScript", "Next.js", "AI", "Trading"],
+    year: "2025",
+    image: "/tradeX.png?height=400&width=600",
+    links: { live: "https://tradxai.fun", github: "#" },
   },
 ]
 
@@ -198,10 +198,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { label: "Projects delivered", value: "50+" },
-              { label: "Hackathons won", value: "15+" },
-              { label: "Chains deployed on", value: "10+" },
-              { label: "Years of experience", value: "3+" },
+              { label: "Projects delivered", value: "10+" },
+              { label: "Hackathons won", value: "5+" },
+              { label: "Chains deployed on", value: "5+" },
+              { label: "Years of experience", value: "2+" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl font-light mb-2">{stat.value}</div>

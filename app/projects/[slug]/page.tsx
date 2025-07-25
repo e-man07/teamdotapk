@@ -12,7 +12,7 @@ const projectData: Record<string, any> = {
     description: "A composable AI agents markeplace running on decentralized infra.",
     year: "2025",
     category: "AI",
-    image: "/payperuse.png?height=600&width=1200",
+    image: "/payperuse.png?height=600&width=1500",
     overview:
       "Our DeFi Yield Protocol represents a breakthrough in automated yield farming, combining advanced smart contract architecture with machine learning-driven optimization strategies. Built on Ethereum, this protocol automatically allocates user funds across multiple DeFi platforms to maximize returns while minimizing risk.",
     challenge:
