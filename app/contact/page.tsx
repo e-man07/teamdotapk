@@ -10,27 +10,53 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { contactFormSchema, type ContactFormValues, mapFormToDbSchema } from "@/lib/schemas/contact"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    project: "",
-    budget: "",
-    message: "",
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      project: "",
+      budget: "",
+      message: "",
+    },
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleSubmit = async (data: ContactFormValues) => {
+    try {
+      setIsSubmitting(true)
+      
+      // Map form data to database schema format
+      const dbData = mapFormToDbSchema(data)
+      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dbData),
+      })
+      
+      if (!response.ok) {
+        throw new Error("Failed to submit form")
+      }
+      
+      toast.success("Message sent successfully! We'll be in touch soon.")
+      form.reset()
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      toast.error("Failed to send message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -55,7 +81,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Form */}
             <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="name" className="text-gray-400 mb-3 block">
@@ -63,14 +89,14 @@ export default function ContactPage() {
                     </Label>
                     <Input
                       id="name"
-                      name="name"
                       type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
                       className="bg-transparent border-gray-800 text-white placeholder-gray-500 focus:border-gray-600"
                       placeholder="Your name"
+                      {...form.register("name")}
                     />
+                    {form.formState.errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.name.message}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="email" className="text-gray-400 mb-3 block">
@@ -78,14 +104,14 @@ export default function ContactPage() {
                     </Label>
                     <Input
                       id="email"
-                      name="email"
                       type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
                       className="bg-transparent border-gray-800 text-white placeholder-gray-500 focus:border-gray-600"
                       placeholder="your@email.com"
+                      {...form.register("email")}
                     />
+                    {form.formState.errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -95,12 +121,10 @@ export default function ContactPage() {
                   </Label>
                   <Input
                     id="company"
-                    name="company"
                     type="text"
-                    value={formData.company}
-                    onChange={handleChange}
                     className="bg-transparent border-gray-800 text-white placeholder-gray-500 focus:border-gray-600"
                     placeholder="Your company (optional)"
+                    {...form.register("company")}
                   />
                 </div>
 
@@ -111,12 +135,12 @@ export default function ContactPage() {
                     </Label>
                     <select
                       id="project"
-                      name="project"
-                      required
-                      value={formData.project}
-                      onChange={handleChange}
                       className="w-full p-3 bg-transparent border border-gray-800 rounded-md text-white focus:border-gray-600 focus:outline-none"
+                      {...form.register("project")}
                     >
+                    {form.formState.errors.project && (
+                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.project.message}</p>
+                    )}
                       <option value="" className="bg-black">
                         Select project type
                       </option>
@@ -152,10 +176,8 @@ export default function ContactPage() {
                     </Label>
                     <select
                       id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
                       className="w-full p-3 bg-transparent border border-gray-800 rounded-md text-white focus:border-gray-600 focus:outline-none"
+                      {...form.register("budget")}
                     >
                       <option value="" className="bg-black">
                         Select budget
@@ -188,19 +210,24 @@ export default function ContactPage() {
                   </Label>
                   <Textarea
                     id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
                     rows={6}
                     className="bg-transparent border-gray-800 text-white placeholder-gray-500 focus:border-gray-600 resize-none"
                     placeholder="Describe your project, timeline, and any specific requirements..."
+                    {...form.register("message")}
                   />
+                  {form.formState.errors.message && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.message.message}</p>
+                  )}
                 </div>
 
-                <Button type="submit" size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8">
-                  Send message
-                  <ArrowUpRight className="ml-2 w-4 h-4" />
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="bg-white text-black hover:bg-gray-100 rounded-full px-8"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send message"}
+                  {!isSubmitting && <ArrowUpRight className="ml-2 w-4 h-4" />}
                 </Button>
               </form>
             </div>

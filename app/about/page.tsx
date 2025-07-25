@@ -59,7 +59,7 @@ export default function AboutPage() {
                 year: "2025",
                 title: "First Hackathon Win",
                 description:
-                  "Won our first major hackathon with a DeFi protocol that caught the attention of the community.",
+                  "Won our first major hackathon with a DeFi security protocol on Solana that caught the attention of the community.",
               },
               {
                 year: "2025",

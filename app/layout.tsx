@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "sonner"
 
 export const metadata: Metadata = {
   title: 'teamdotapk',
@@ -28,7 +29,7 @@ html {
       <body>
         {children}
         <Analytics />
-
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   )
