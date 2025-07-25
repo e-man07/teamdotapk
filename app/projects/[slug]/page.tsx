@@ -20,7 +20,7 @@ const projectData: Record<string, any> = {
     solution:
       "We developed an intelligent protocol that uses machine learning algorithms to analyze market conditions, assess risks, and automatically rebalance portfolios across 15+ DeFi protocols in real-time.",
     tags: ["Base", "Next.js", "React", "Machine Learning", "AI"],
-    links: { live: "https://payperuse.online", github: "#" },
+    links: { live: "https://payperuse.online", github: "https://github.com/kshitij-hash/PayPerUse" },
     features: [
       "Automated yield optimization across 15+ protocols",
       "Real-time risk assessment and rebalancing",
@@ -36,11 +36,11 @@ const projectData: Record<string, any> = {
     ],
   },
   "nft-marketplace": {
-    title: "Cross-Chain NFT Marketplace",
-    description: "Multi-chain marketplace supporting Ethereum, Solana, and Base",
-    year: "2024",
-    category: "NFT",
-    image: "/placeholder.svg?height=600&width=1200",
+    title: "Lavinth",
+    description: "A DeFi security layer on Solana.",
+    year: "2025",
+    category: "DeFi Security",
+    image: "/lavinth.png?height=600&width=1200",
     overview:
       "A revolutionary NFT marketplace that breaks down barriers between blockchain ecosystems, enabling seamless trading across Ethereum, Solana, and Base networks through advanced bridging technology.",
     challenge:
@@ -48,7 +48,7 @@ const projectData: Record<string, any> = {
     solution:
       "We built a unified marketplace with proprietary cross-chain bridge technology that maintains asset integrity while enabling true interoperability between major blockchain networks.",
     tags: ["Solana", "Ethereum", "Base", "NFTs", "Cross-chain"],
-    links: { live: "#", github: "#" },
+    links: { live: "https://lavinth.com", github: "https://github.com/piyushjha0409/Lavinth" },
     features: [
       "Cross-chain NFT trading",
       "Unified wallet integration",
