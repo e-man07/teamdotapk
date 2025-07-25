@@ -212,13 +212,15 @@ export default function ContactPage() {
                 <div className="space-y-4 text-gray-400">
                   <div>
                     <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Email</div>
-                    <a href="mailto:hello@teamdotapk.dev" className="hover:text-white transition-colors">
-                      hello@teamdotapk.dev
+                    <a href="mailto:teamdotapk@gmail.com" className="hover:text-white transition-colors">
+                      teamdotapk@gmail.com
                     </a>
                   </div>
                   <div>
-                    <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Discord</div>
-                    <span>teamdotapk#1234</span>
+                    <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Twitter</div>
+                    <a href="https://x.com/teamdotapk" className="hover:text-white transition-colors">
+                      teamdotapk
+                    </a>
                   </div>
                 </div>
               </div>
