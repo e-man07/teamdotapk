@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="solads-site-verification" content="solads_verify_1755638114116_1f45098eeb5047695eabceb7c6cfc78a" />
+      <meta name="solads-site-verification" content="solads_verify_1755639414042_c90affeb648be3c48b28159a41bd55f7" />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
